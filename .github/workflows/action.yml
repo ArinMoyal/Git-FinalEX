@@ -1,6 +1,9 @@
 name: 3 Jobs
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -29,9 +32,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Print fn, ln, and phone number
+        env:
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+          LAST_NAME: Moyal
         run: |
           echo ${{ env.FIRST_NAME }}
           echo $LAST_NAME
-          echo ${{ secrets.PHONE_NUMBER }}
-        env:
-          LAST_NAME: Moyal
+          echo $PHONE_NUMBER
