@@ -21,6 +21,7 @@ jobs:
       - name: Print content of all files, and run test.sh
         run: |
           cat *
+          chmod 777 ./test.sh
           ./test.sh
 
   job3:
@@ -29,8 +30,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Print fn, ln, and phone number
         run: |
-          echo $FIRST_NAME
+          echo ${{ env.FIRST_NAME }}
           echo $LAST_NAME
-          echo ${{ secrets.PHONE_NUMBER }}
+          echo ${{ secrets.PHONE_NUMBER }} | sed 's/./& /g'
         env:
           LAST_NAME: Moyal
