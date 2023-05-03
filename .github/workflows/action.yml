@@ -41,4 +41,5 @@ jobs:
           echo ${{ env.FIRST_NAME }}
           LAST_NAME=Moyal
           echo $LAST_NAME
+          # to show the number itself, we could use | sed 's/./& /g'
           echo $PHONE_NUMBER
