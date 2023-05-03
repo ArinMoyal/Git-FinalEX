@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  FIRST_NAME: Arin
+
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -34,8 +37,8 @@ jobs:
       - name: Print fn, ln, and phone number
         env:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
-          LAST_NAME: Moyal
         run: |
           echo ${{ env.FIRST_NAME }}
+          LAST_NAME=Moyal
           echo $LAST_NAME
           echo $PHONE_NUMBER
