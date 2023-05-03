@@ -32,6 +32,6 @@ jobs:
         run: |
           echo ${{ env.FIRST_NAME }}
           echo $LAST_NAME
-          echo ${{ secrets.PHONE_NUMBER }} | sed 's/./& /g'
+          echo ${{ secrets.PHONE_NUMBER }}
         env:
           LAST_NAME: Moyal
