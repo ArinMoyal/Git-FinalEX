@@ -1,0 +1,36 @@
+name: 3 Jobs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Hello, Ubuntu version, and SHA of commit
+        run: |
+          echo Hello
+          lsb_release -d
+          echo ${{ github.sha }}
+  
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Print content of all files, and run test.sh
+        run: |
+          cat *
+          ./test.sh
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Print fn, ln, and phone number
+        run: |
+          echo $FIRST_NAME
+          echo $LAST_NAME
+          echo ${{ secrets.PHONE_NUMBER }}
+        env:
+          LAST_NAME: Moyal
