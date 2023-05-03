@@ -43,3 +43,4 @@ jobs:
           echo $LAST_NAME
           # to show the number itself, we could use | sed 's/./& /g'
           echo $PHONE_NUMBER
+          echo "(to show the number itself, we could use | sed 's/./& /g')"
